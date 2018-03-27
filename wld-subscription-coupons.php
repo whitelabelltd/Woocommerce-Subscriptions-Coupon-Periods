@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Woocommerce Subscriptions Coupon Periods
  * Description: Allows free renewal for certain amount of periods. Settings are in Woocommerce > Subscriptions Tab
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: Whitelabel Digital
  * Author URI: https://whitelabel.ltd
  * Requires at least: 4.8
@@ -14,8 +14,60 @@
  */
 
 /**
- * @todo update front end text on checkout when using the selected coupon
+ * Translate Text
  */
+function wcs_recurring_renewal_discount_init() {
+	$plugin_rel_path = basename( dirname( __FILE__ ) ) . '/languages'; /* Relative to WP_PLUGIN_DIR */
+	load_plugin_textdomain( 'wcs-recurring-renewal-discount', false, $plugin_rel_path );
+}
+add_action('plugins_loaded', 'wcs_recurring_renewal_discount_init');
+
+
+/**
+ * Updates the date the customer will be charged on the checkout page
+ * @param $order_total_html
+ * @param $cart
+ *
+ * @return mixed|string
+ */
+function dfc_wld_subs_coupon_checkout( $order_total_html, $cart ) {
+
+	// Load User set coupon code
+	$coupon_code = get_option('wld-subscription-coupons_code','');
+
+	// Make sure our coupon is applied and that it is not a re-subscription but it does contain a subscription
+	if (!empty($coupon_code) && in_array($coupon_code,WC()->cart->applied_coupons) && !wcs_cart_contains_resubscribe() && WC_Subscriptions_Cart::cart_contains_subscription()) {
+
+		$order_total_html_old = '';
+
+		if ( 0 !== $cart->next_payment_date ) {
+			$first_renewal_date = date_i18n( wc_date_format(), wcs_date_to_time( get_date_from_gmt( $cart->next_payment_date ) ) );
+
+			// translators: placeholder is a date
+			$order_total_html_old  = '<div class="first-payment-date"><small>' . sprintf( __( 'First renewal: %s', 'woocommerce-subscriptions' ), $first_renewal_date ) .  '</small></div>';
+		}
+		// Remove the standard String
+		$order_total_html = str_replace($order_total_html_old,'',$order_total_html);
+
+		// Get our new date
+
+		$sub_period = get_option('wld-subscription-coupons_periods',0);
+
+		if (!empty($sub_period) && is_numeric($sub_period) && 0 !== $sub_period) {
+
+			$first_renewal_date = date_i18n( wc_date_format(), strtotime("+{$sub_period} week", wcs_date_to_time( get_date_from_gmt( $cart->next_payment_date ) )));
+
+			// Add our own one
+			// translators: placeholder is a number of periods until the customer is charged
+			$order_total_html  .= '<div class="first-payment-text"><small>' . sprintf( __( 'You will not be charged until: %s', 'wcs-recurring-renewal-discount' ), $first_renewal_date ) .  '</small></div>';
+
+		}
+
+	}
+
+	return $order_total_html;
+}
+add_filter('wcs_cart_totals_order_total_html','dfc_wld_subs_coupon_checkout', 20, 2);
 
 /**
  * Adds the settings to Woocommerce Subscription Page

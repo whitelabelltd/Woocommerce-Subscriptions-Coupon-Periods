@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Woocommerce Subscriptions Coupon Periods\n"
-"POT-Creation-Date: 2018-03-27 23:08+1300\n"
+"POT-Creation-Date: 2018-03-28 10:25+1300\n"
 "PO-Revision-Date: 2018-03-27 18:52+1300\n"
 "Last-Translator: Dennis Finnema <dennis@itchef.nz>\n"
 "Language-Team: Dennis Finnema <dennis@itchef.nz>\n"
@@ -21,14 +21,26 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
+#. translators: placeholder is a date
+#: wld-subscription-coupons.php:41
+#, php-format
+msgid "First renewal: %s"
+msgstr ""
+
+#. translators: placeholder is a number of periods until the customer is charged
+#: wld-subscription-coupons.php:56
+#, php-format
+msgid "You will not be charged until: %s"
+msgstr ""
+
 #. translators: Options Title
-#: wld-subscription-coupons.php:33
+#: wld-subscription-coupons.php:79
 msgctxt "options section heading"
 msgid "Subscription Coupon Periods"
 msgstr ""
 
 #. translators: Options Page Description
-#: wld-subscription-coupons.php:36
+#: wld-subscription-coupons.php:82
 #, php-format
 msgctxt "wcs-recurring-renewal-discount"
 msgid ""
@@ -42,23 +54,23 @@ msgid ""
 msgstr ""
 
 #. translators: Options Label for Coupon Code
-#: wld-subscription-coupons.php:42
+#: wld-subscription-coupons.php:88
 msgid "Coupon Code"
 msgstr ""
 
 #. translators: Options Description for Coupon Code
-#: wld-subscription-coupons.php:44
+#: wld-subscription-coupons.php:90
 msgctxt "wcs-recurring-renewal-discount"
 msgid "the coupon code that will be used for this plugin"
 msgstr ""
 
 #. translators: Options Label for Line Item
-#: wld-subscription-coupons.php:54
+#: wld-subscription-coupons.php:100
 msgid "Line Item Name"
 msgstr ""
 
 #. translators: Options Description for Line Item
-#: wld-subscription-coupons.php:56
+#: wld-subscription-coupons.php:102
 msgctxt "wcs-recurring-renewal-discount"
 msgid ""
 "The text listed on the order the discount is applied with. Leave blank to "
@@ -66,24 +78,24 @@ msgid ""
 msgstr ""
 
 #. translators: Options Default for Line Item
-#: wld-subscription-coupons.php:60
+#: wld-subscription-coupons.php:106
 msgctxt "wcs-recurring-renewal-discount"
 msgid "Sign-up Promo Discount"
 msgstr ""
 
 #. translators: Options Label for Periods
-#: wld-subscription-coupons.php:67
+#: wld-subscription-coupons.php:113
 msgid "How Many Periods"
 msgstr ""
 
 #. translators: Options Description for Periods
-#: wld-subscription-coupons.php:69
+#: wld-subscription-coupons.php:115
 msgctxt "wcs-recurring-renewal-discount"
 msgid "how many periods should it apply the coupon?"
 msgstr ""
 
 #. translators: Order Note that is added to Admin part of the subscription
-#: wld-subscription-coupons.php:133
+#: wld-subscription-coupons.php:179
 #, php-format
 msgid ""
 "Sign-up Promo Discount Applied. For the next %s periods the customer will "
@@ -91,19 +103,19 @@ msgid ""
 msgstr ""
 
 #. translators: Default Text used for Line Item for the Discount
-#: wld-subscription-coupons.php:176
+#: wld-subscription-coupons.php:222
 msgid "Sign-up Promo Discount"
 msgstr ""
 
 #. translators: Note that is added to Admin part of the order
 #. translators: Subscription Note that is added to Admin part of the order after the discount is applied
-#: wld-subscription-coupons.php:208 wld-subscription-coupons.php:211
+#: wld-subscription-coupons.php:254 wld-subscription-coupons.php:257
 #, php-format
 msgid "Sign-up Promo Discount Applied. %s renewal periods remain"
 msgstr ""
 
 #. translators: Subscription Note that is added to Admin part of the order after the discount period has finished
-#: wld-subscription-coupons.php:226
+#: wld-subscription-coupons.php:272
 msgid ""
 "Sign-up Promo Discount Finished. Customer will now be charged as per normal"
 msgstr ""

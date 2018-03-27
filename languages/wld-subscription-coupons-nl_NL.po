@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Woocommerce Subscriptions Coupon Periods\n"
-"POT-Creation-Date: 2018-03-27 23:08+1300\n"
-"PO-Revision-Date: 2018-03-27 23:13+1300\n"
+"POT-Creation-Date: 2018-03-28 10:25+1300\n"
+"PO-Revision-Date: 2018-03-28 10:26+1300\n"
 "Last-Translator: Dennis Finnema <dennis@itchef.nz>\n"
 "Language-Team: Dennis Finnema <dennis@itchef.nz>\n"
 "Language: nl_NL\n"
@@ -16,19 +16,31 @@ msgstr ""
 "X-Poedit-WPHeader: wld-subscription-coupons.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
+#. translators: placeholder is a date
+#: wld-subscription-coupons.php:41
+#, php-format
+msgid "First renewal: %s"
+msgstr "Eerste verlenging: %s"
+
+#. translators: placeholder is a number of periods until the customer is charged
+#: wld-subscription-coupons.php:56
+#, php-format
+msgid "You will not be charged until: %s"
+msgstr "Er wordt niets in rekening gebracht tot: %s"
+
 #. translators: Options Title
-#: wld-subscription-coupons.php:33
+#: wld-subscription-coupons.php:79
 msgctxt "options section heading"
 msgid "Subscription Coupon Periods"
-msgstr ""
+msgstr "Abonnementsperiode"
 
 #. translators: Options Page Description
-#: wld-subscription-coupons.php:36
+#: wld-subscription-coupons.php:82
 #, php-format
 msgctxt "wcs-recurring-renewal-discount"
 msgid ""
@@ -41,83 +53,82 @@ msgid ""
 "card details will be captured on checkout.</p>"
 msgstr ""
 "<p> Bij een abonnement verlenging zal een korting van 100% op de bestelling "
-"worden toegepast voor een bepaald aantal periodes. Dit kan handig zijn om "
-"de eerste paar verlengingen gratis voor de klant te zijn in combinatie met "
-"een kortingsbon. </p><p></p>Hoe gebruik je deze plugin?<br><ol><li> Maak "
-"een kortingsbon (bijv. Vaste productkorting) </li><li> Stel de onderstaande "
+"worden toegepast voor een bepaald aantal periodes. Dit kan handig zijn om de "
+"eerste paar verlengingen gratis voor de klant te zijn in combinatie met een "
+"kortingsbon. </p><p></p>Hoe gebruik je deze plugin?<br><ol><li> Maak een "
+"kortingsbon (bijv. Vaste productkorting) </li><li> Stel de onderstaande "
 "opties in </li><li> Voor de ingestelde periodes, wordt de klant geen kosten "
 "in rekening gebracht </li></ol><p><p></p> Gebruik de terugkerende "
 "kortingsbonnen niet, want er worden geen kaartgegevens gevraagd tijdens het "
 "afrekenen. </p>"
 
 #. translators: Options Label for Coupon Code
-#: wld-subscription-coupons.php:42
+#: wld-subscription-coupons.php:88
 msgid "Coupon Code"
 msgstr "Couponcode"
 
 #. translators: Options Description for Coupon Code
-#: wld-subscription-coupons.php:44
+#: wld-subscription-coupons.php:90
 msgctxt "wcs-recurring-renewal-discount"
 msgid "the coupon code that will be used for this plugin"
 msgstr "de coupon code die je wilt gaan gebruiken"
 
 #. translators: Options Label for Line Item
-#: wld-subscription-coupons.php:54
+#: wld-subscription-coupons.php:100
 msgid "Line Item Name"
 msgstr "Item naam"
 
 #. translators: Options Description for Line Item
-#: wld-subscription-coupons.php:56
+#: wld-subscription-coupons.php:102
 msgctxt "wcs-recurring-renewal-discount"
 msgid ""
 "The text listed on the order the discount is applied with. Leave blank to "
 "use the coupon description"
-msgstr ""
-"De tekst die wordt gebruikt voor de klant om de korting te beschrijven"
+msgstr "De tekst die wordt gebruikt voor de klant om de korting te beschrijven"
 
 #. translators: Options Default for Line Item
-#: wld-subscription-coupons.php:60
+#: wld-subscription-coupons.php:106
 msgctxt "wcs-recurring-renewal-discount"
 msgid "Sign-up Promo Discount"
 msgstr "Aanmeld Actie Korting"
 
 #. translators: Options Label for Periods
-#: wld-subscription-coupons.php:67
+#: wld-subscription-coupons.php:113
 msgid "How Many Periods"
 msgstr "Abonnementsperiodes"
 
 #. translators: Options Description for Periods
-#: wld-subscription-coupons.php:69
+#: wld-subscription-coupons.php:115
 msgctxt "wcs-recurring-renewal-discount"
 msgid "how many periods should it apply the coupon?"
 msgstr "hoeveel vernieuwing’s periodes krijgt de klant gratis?"
 
 #. translators: Order Note that is added to Admin part of the subscription
-#: wld-subscription-coupons.php:133
+#: wld-subscription-coupons.php:179
 #, php-format
 msgid ""
 "Sign-up Promo Discount Applied. For the next %s periods the customer will "
 "NOT be charged."
 msgstr ""
-"Aanmeld Actie Korting toegevoegd. Voor de volgende %s abonnementsperiodes "
-"is de bestelling gratis voor de klant."
+"Aanmeld Actie Korting toegevoegd. Voor de volgende %s abonnementsperiodes is "
+"de bestelling gratis voor de klant."
 
 #. translators: Default Text used for Line Item for the Discount
-#: wld-subscription-coupons.php:176
+#: wld-subscription-coupons.php:222
 msgid "Sign-up Promo Discount"
 msgstr "Aanmeld Actie Korting"
 
 #. translators: Note that is added to Admin part of the order
 #. translators: Subscription Note that is added to Admin part of the order after the discount is applied
-#: wld-subscription-coupons.php:208 wld-subscription-coupons.php:211
+#: wld-subscription-coupons.php:254 wld-subscription-coupons.php:257
 #, php-format
 msgid "Sign-up Promo Discount Applied. %s renewal periods remain"
 msgstr ""
-"Aanmeld Actie Korting toegevoegd. Voor de volgende %s abonnementsperiodes "
-"is de bestelling gratis voor de klant"
+"Aanmeld Actie Korting toegevoegd. Voor de volgende %s abonnementsperiodes is "
+"de bestelling gratis voor de klant"
 
 #. translators: Subscription Note that is added to Admin part of the order after the discount period has finished
-#: wld-subscription-coupons.php:226
+#: wld-subscription-coupons.php:272
 msgid ""
 "Sign-up Promo Discount Finished. Customer will now be charged as per normal"
 msgstr ""

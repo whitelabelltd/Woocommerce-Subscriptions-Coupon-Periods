@@ -1,0 +1,123 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Project-Id-Version: Woocommerce Subscriptions Coupon Periods\n"
+"POT-Creation-Date: 2018-03-27 18:57+1300\n"
+"PO-Revision-Date: 2018-03-27 19:06+1300\n"
+"Language-Team: Dennis Finnema <dennis@itchef.nz>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wld-subscription-coupons.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Last-Translator: Dennis Finnema <dennis@itchef.nz>\n"
+"Language: nl_NL\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#. translators: Options Title
+#: wld-subscription-coupons.php:29
+msgctxt "options section heading"
+msgid "Subscription Coupon Periods"
+msgstr "Abonnementsperiode"
+
+#. translators: Options Page Description
+#: wld-subscription-coupons.php:32
+#, php-format
+msgctxt "wcs-recurring-renewal-discount"
+msgid ""
+"<p>Upon a renewal order it will apply a 100% discount to the order for a "
+"certain amount of periods. This can be useful for Allowing the first few "
+"renewals to be free in conjunction with a coupon.</p><p>&nbsp;</p>How to "
+"Use<br><ol><li>Create a coupon (eg; Fixed product discount)</li><li>Set the "
+"options below</li><li>Now for the periods set, the customer will not be "
+"charged</li></ol><p><p>&nbsp;</p>Do not use the recurring the coupons as no "
+"card details will be captured on checkout.</p>"
+msgstr ""
+"<p> Bij een abonnement verlenging zal een korting van 100% op de bestelling "
+"worden toepassen voor een bepaald aantal periodes. Dit kan handig zijn om "
+"de eerste paar verlengingen gratis te laten zijn in combinatie met een "
+"kortingsbon. </p><p></p>Hoe gebruik je deze plugin?<br><ol><li> Maak een "
+"kortingsbon (bijv. Vaste productkorting) </li><li> Stel de onderstaande "
+"opties in </li><li> Voor de ingestelde periodes, wordt de klant geen kosten "
+"in rekening gebracht </li></ol><p><p></p> Gebruik de terugkerende "
+"kortingsbonnen niet, want er worden geen kaartgegevens gevraagd tijdens het "
+"afrekenen. </p>"
+
+#. translators: Options Label for Coupon Code
+#: wld-subscription-coupons.php:38
+msgid "Coupon Code"
+msgstr "Couponcode"
+
+#. translators: Options Description for Coupon Code
+#: wld-subscription-coupons.php:40
+msgctxt "wcs-recurring-renewal-discount"
+msgid "the coupon code that will be used for this plugin"
+msgstr "de coupon code die je wilt gaan gebruiken"
+
+#. translators: Options Label for Line Item
+#: wld-subscription-coupons.php:50
+msgid "Line Item Name"
+msgstr "Item naam"
+
+#. translators: Options Description for Line Item
+#: wld-subscription-coupons.php:52
+msgctxt "wcs-recurring-renewal-discount"
+msgid ""
+"The text listed on the order the discount is applied with. Leave blank to "
+"use the coupon description"
+msgstr ""
+"De tekst die wordt gebruikt voor de klant om de korting te beschrijven"
+
+#. translators: Options Default for Line Item
+#: wld-subscription-coupons.php:56
+msgctxt "wcs-recurring-renewal-discount"
+msgid "Sign-up Promo Discount"
+msgstr "Aanmeld Actie Korting"
+
+#. translators: Options Label for Periods
+#: wld-subscription-coupons.php:63
+msgid "How Many Periods"
+msgstr "Abonnementsperiodes"
+
+#. translators: Options Description for Periods
+#: wld-subscription-coupons.php:65
+msgctxt "wcs-recurring-renewal-discount"
+msgid "how many periods should it apply the coupon?"
+msgstr "hoeveel vernieuwing’s periodes krijgt de klant gratis?"
+
+#. translators: Default Text used for Line Item for the Discount
+#: wld-subscription-coupons.php:167
+msgid "Sign-up Promo Discount"
+msgstr "Aanmeld Actie Korting"
+
+#. translators: Note that is added to Admin part of the order
+#: wld-subscription-coupons.php:196
+msgid "Sign-up Promo Discount Applied"
+msgstr "Aanmeld Actie Korting Toegepast"
+
+#. Plugin Name of the plugin/theme
+msgid "Woocommerce Subscriptions Coupon Periods"
+msgstr "WooCommerce abonnementen coupon periodes"
+
+#. Description of the plugin/theme
+msgid ""
+"Allows free renewal for certain amount of periods. Settings are in "
+"Woocommerce > Subscriptions Tab"
+msgstr ""
+"Gratis proefperiodes die je voor een langere tijd kan gebruiken. Settings "
+"zijn te vinden in Woocommerce Settings > Subscriptions tab"
+
+#. Author of the plugin/theme
+msgid "Whitelabel Digital"
+msgstr "Whitelabel Digital"
+
+#. Author URI of the plugin/theme
+msgid "https://whitelabel.ltd"
+msgstr "https://whitelabel.ltd"

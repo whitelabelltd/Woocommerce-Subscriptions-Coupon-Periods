@@ -14,6 +14,10 @@
  */
 
 /**
+ * @todo update front end text on checkout when using the selected coupon
+ */
+
+/**
  * Adds the settings to Woocommerce Subscription Page
  * @param $settings
  *
@@ -114,7 +118,7 @@ function dfc_wld_new_sub_created( $subscription , $order , $recurring_cart ) {
 			if ($coupon_code_static == $coupon) {
 
 				// Using our defined Coupon code, add this to the subscription
-				update_post_meta( $subscription->get_id() , 'dfc_wld_subs_coupons_use', true );
+				update_post_meta( $subscription->get_id() , '_dfc_wld_subs_coupons_use', true );
 
 				// Adjust periods by 1 as when the order is placed we use up a period already
 				if (1 < $coupon_periods_static) {
@@ -122,7 +126,12 @@ function dfc_wld_new_sub_created( $subscription , $order , $recurring_cart ) {
 				}
 				
 				// Set the renew periods left
-				update_post_meta( $subscription->get_id() , 'dfc_wld_subs_coupons_periods_left', $coupon_periods_static );
+				update_post_meta( $subscription->get_id() , '_dfc_wld_subs_coupons_periods_left', $coupon_periods_static );
+
+				// Add Order note to the subscription for the store manager / admin
+				/* translators: Order Note that is added to Admin part of the subscription */
+				$subscription->add_order_note( sprintf( __('Sign-up Promo Discount Applied. For the next %s periods the customer will NOT be charged.' , 'wcs-recurring-renewal-discount' ) , ($coupon_periods_static - 1 ) ) );
+
 			}
 		}
 
@@ -142,12 +151,12 @@ add_action('woocommerce_checkout_subscription_created','dfc_wld_new_sub_created'
 function dfc_subs_recurring_discount( $renewal_order , $subscription ) {
 
 	// Does the subscription contain our meta data?
-	$is_free_sub_for_first_few_periods = get_post_meta( $subscription->get_id() , 'dfc_wld_subs_coupons_use', true );
+	$is_free_sub_for_first_few_periods = get_post_meta( $subscription->get_id() , '_dfc_wld_subs_coupons_use', true );
 
 	if (!empty($is_free_sub_for_first_few_periods) && true == $is_free_sub_for_first_few_periods) {
 		// Yep its a special free for the first few periods subscription, lets get how many times left?
 
-		$how_many_free_periods_remain = get_post_meta( $subscription->get_id() , 'dfc_wld_subs_coupons_periods_left' , true );
+		$how_many_free_periods_remain = get_post_meta( $subscription->get_id() , '_dfc_wld_subs_coupons_periods_left' , true );
 
 		if (!empty($how_many_free_periods_remain) && 1 <= $how_many_free_periods_remain) {
 			// We have some free periods left, lets set the product for free renewal
@@ -193,7 +202,13 @@ function dfc_subs_recurring_discount( $renewal_order , $subscription ) {
 
 				// Add Order note to the order for the store manager / admin
 				/* translators: Note that is added to Admin part of the order */
-				$renewal_order->add_order_note( __('Sign-up Promo Discount Applied','wcs-recurring-renewal-discount') );
+
+
+
+				$renewal_order->add_order_note( sprintf( __('Sign-up Promo Discount Applied. %s renewal periods remain' , 'wcs-recurring-renewal-discount' ) , ( $how_many_free_periods_remain - 1 ) ) );
+
+				/* translators: Subscription Note that is added to Admin part of the order after the discount is applied */
+				$subscription->add_order_note( sprintf( __('Sign-up Promo Discount Applied. %s renewal periods remain' , 'wcs-recurring-renewal-discount' ) , ( $how_many_free_periods_remain - 1 ) ) );
 
 				// Update Totals
 				$renewal_order->save();
@@ -204,13 +219,22 @@ function dfc_subs_recurring_discount( $renewal_order , $subscription ) {
 			// Update the amount of periods
 			$how_many_free_periods_remain_new = $how_many_free_periods_remain - 1;
 
-			update_post_meta( $subscription->get_id() , 'dfc_wld_subs_coupons_periods_left', $how_many_free_periods_remain_new );
+			// Check if this is the last period?
+			if (0 == $how_many_free_periods_remain_new) {
+				// Add Order note to the order for the store manager / admin
+				/* translators: Subscription Note that is added to Admin part of the order after the discount period has finished */
+				$subscription->add_order_note( __('Sign-up Promo Discount Finished. Customer will now be charged as per normal','wcs-recurring-renewal-discount') );
+			}
+
+			update_post_meta( $subscription->get_id() , '_dfc_wld_subs_coupons_periods_left', $how_many_free_periods_remain_new );
 
 		} else {
 
 			// Remove the coupon traces as the free periods have ended
-			delete_post_meta( $subscription->get_id(), 'dfc_wld_subs_coupons_periods_left');
-			delete_post_meta( $subscription->get_id(), 'dfc_wld_subs_coupons_use');
+			delete_post_meta( $subscription->get_id(), '_dfc_wld_subs_coupons_periods_left');
+			delete_post_meta( $subscription->get_id(), '_dfc_wld_subs_coupons_use');
+
+
 
 		}
 
